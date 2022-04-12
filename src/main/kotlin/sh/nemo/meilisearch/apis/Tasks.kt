@@ -1,9 +1,10 @@
-package sh.nemo.meilisearch
+package sh.nemo.meilisearch.apis
 
-import sh.nemo.meilisearch.responses.TaskResponse
 import io.ktor.client.request.get
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import sh.nemo.meilisearch.Meilisearch
+import sh.nemo.meilisearch.responses.TaskResponse
 
 suspend fun Meilisearch.listTasks() = this.client.get<List<TaskResponse>>("/tasks")
 

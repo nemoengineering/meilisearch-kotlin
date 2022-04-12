@@ -1,6 +1,5 @@
 package sh.nemo.meilisearch
 
-import sh.nemo.meilisearch.exceptions.ResourceNotFound
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
@@ -10,6 +9,12 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.plus
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
+import sh.nemo.meilisearch.apis.createKey
+import sh.nemo.meilisearch.apis.deleteKey
+import sh.nemo.meilisearch.apis.getKey
+import sh.nemo.meilisearch.apis.listKeys
+import sh.nemo.meilisearch.apis.updateKey
+import sh.nemo.meilisearch.exceptions.ResourceNotFound
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

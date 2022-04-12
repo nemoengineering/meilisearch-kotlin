@@ -24,15 +24,3 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build -x test
-
-  release:
-    if: startsWith(github.ref, 'refs/tags/')
-
-    name: Release with Jitpack
-    needs: [ check ]
-    runs-on: ubuntu-20.04
-
-    steps:
-      - uses: badasintended/autojitpack@v1
-        with:
-          version: ${{ github.event.release.tag_name }}

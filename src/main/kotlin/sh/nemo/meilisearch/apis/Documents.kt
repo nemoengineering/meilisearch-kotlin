@@ -1,11 +1,12 @@
-package sh.nemo.meilisearch
+package sh.nemo.meilisearch.apis
 
-import sh.nemo.meilisearch.responses.ChangeResponse
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.put
+import sh.nemo.meilisearch.Meilisearch
+import sh.nemo.meilisearch.responses.ChangeResponse
 
 suspend inline fun <reified T> Meilisearch.getDocuments(
     indexUid: String,

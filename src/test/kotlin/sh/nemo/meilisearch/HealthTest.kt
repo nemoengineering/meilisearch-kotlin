@@ -3,6 +3,7 @@ package sh.nemo.meilisearch
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import sh.nemo.meilisearch.apis.health
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)

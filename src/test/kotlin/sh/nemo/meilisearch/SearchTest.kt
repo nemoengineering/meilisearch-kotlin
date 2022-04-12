@@ -4,6 +4,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.Serializable
 import org.junit.jupiter.api.Test
+import sh.nemo.meilisearch.apis.addDocuments
+import sh.nemo.meilisearch.apis.createIndex
+import sh.nemo.meilisearch.apis.search
+import sh.nemo.meilisearch.apis.waitForTask
 import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)

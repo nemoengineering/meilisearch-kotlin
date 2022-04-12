@@ -1,13 +1,14 @@
-package sh.nemo.meilisearch
+package sh.nemo.meilisearch.apis
 
-import sh.nemo.meilisearch.requests.IndexCreateRequest
-import sh.nemo.meilisearch.requests.IndexUpdateRequest
-import sh.nemo.meilisearch.responses.ChangeResponse
-import sh.nemo.meilisearch.responses.IndexResponse
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.put
+import sh.nemo.meilisearch.Meilisearch
+import sh.nemo.meilisearch.requests.IndexCreateRequest
+import sh.nemo.meilisearch.requests.IndexUpdateRequest
+import sh.nemo.meilisearch.responses.ChangeResponse
+import sh.nemo.meilisearch.responses.IndexResponse
 
 suspend fun Meilisearch.listIndexes() = this.client.get<List<IndexResponse>>("/indexes")
 

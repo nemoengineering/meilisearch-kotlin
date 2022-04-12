@@ -1,13 +1,14 @@
-package sh.nemo.meilisearch
+package sh.nemo.meilisearch.apis
 
-import sh.nemo.meilisearch.requests.KeyUpsertRequest
-import sh.nemo.meilisearch.responses.KeyResponse
-import sh.nemo.meilisearch.responses.KeysResponse
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.patch
 import io.ktor.client.request.post
 import kotlinx.datetime.Instant
+import sh.nemo.meilisearch.Meilisearch
+import sh.nemo.meilisearch.requests.KeyUpsertRequest
+import sh.nemo.meilisearch.responses.KeyResponse
+import sh.nemo.meilisearch.responses.KeysResponse
 
 suspend fun Meilisearch.listKeys() = this.client.get<KeysResponse>("/keys").results
 

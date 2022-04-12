@@ -1,8 +1,9 @@
-package sh.nemo.meilisearch
+package sh.nemo.meilisearch.apis
 
+import io.ktor.client.request.post
+import sh.nemo.meilisearch.Meilisearch
 import sh.nemo.meilisearch.requests.SearchRequest
 import sh.nemo.meilisearch.responses.SearchResponse
-import io.ktor.client.request.post
 
 suspend inline fun <reified T> Meilisearch.search(
     indexUid: String,
