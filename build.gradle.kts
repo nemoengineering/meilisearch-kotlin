@@ -21,7 +21,7 @@ dependencies {
     implementation("io.ktor:ktor-client-core:1.6.8")
     implementation("io.ktor:ktor-client-cio:1.6.8")
     implementation("io.ktor:ktor-client-serialization:1.6.8")
-    implementation("io.ktor:ktor-client-logging:1.6.8")
+    implementation("io.ktor:ktor-client-logging:2.0.0")
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
     implementation("ch.qos.logback:logback-classic:1.2.11")
