@@ -36,3 +36,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           generate_release_notes: true
+      - uses: badasintended/autojitpack@v1
+        with:
+          version: ${{ github.ref_name }}
