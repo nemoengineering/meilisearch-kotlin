@@ -1,5 +1,8 @@
 # Meilisearch Kotlin Client
 
+[![](https://jitpack.io/v/nemoengineering/meilisearch-kotlin.svg)](https://jitpack.io/#nemoengineering/meilisearch-kotlin)
+[![CD/CI Workflow](https://github.com/nemoengineering/meilisearch-kotlin/actions/workflows/cdci-workflow.yml/badge.svg)](https://github.com/nemoengineering/meilisearch-kotlin/actions/workflows/cdci-workflow.yml)
+
 A Kotlin wrapper around [Meilisearch](https://github.com/meilisearch/meilisearch) REST API. This library uses Ktor
 Client and KotlinX Serialization under the hood in order to provide an async typed client for Meilisearch.
 
