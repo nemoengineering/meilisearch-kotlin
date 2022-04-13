@@ -42,7 +42,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile::class).all {
-    kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    kotlinOptions.freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
 }
 
 val sourcesJar by tasks.registering(Jar::class) {
