@@ -8,7 +8,7 @@ Client and KotlinX Serialization under the hood in order to provide an async typ
 This library is currently available through JitPack.
 
 In order to use the library, add first the JitPack repository to the `repositories` block and then the dependency to
-the `dependencies block`:
+the `dependencies` block:
 
 ```kotlin
 repositories {
