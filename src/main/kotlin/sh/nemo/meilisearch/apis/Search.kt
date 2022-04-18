@@ -1,6 +1,8 @@
 package sh.nemo.meilisearch.apis
 
+import io.ktor.client.call.body
 import io.ktor.client.request.post
+import io.ktor.client.request.setBody
 import sh.nemo.meilisearch.Meilisearch
 import sh.nemo.meilisearch.requests.SearchRequest
 import sh.nemo.meilisearch.responses.SearchResponse
@@ -18,19 +20,21 @@ suspend inline fun <reified T> Meilisearch.search(
     attributesToHighlight: List<String>? = null,
     matches: Boolean = false,
     sort: String? = null
-) =
-    this.client.post<SearchResponse<T>>("/indexes/$indexUid/search") {
-        body = SearchRequest(
-            query,
-            offset,
-            limit,
-            filter,
-            facetsDistribution,
-            attributesToRetrieve,
-            attributesToCrop,
-            cropLength,
-            attributesToHighlight,
-            matches,
-            sort,
+): SearchResponse<T> =
+    this.client.post("/indexes/$indexUid/search") {
+        setBody(
+            SearchRequest(
+                query,
+                offset,
+                limit,
+                filter,
+                facetsDistribution,
+                attributesToRetrieve,
+                attributesToCrop,
+                cropLength,
+                attributesToHighlight,
+                matches,
+                sort,
+            )
         )
-    }
+    }.body()

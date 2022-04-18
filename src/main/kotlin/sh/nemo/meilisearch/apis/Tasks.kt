@@ -1,20 +1,21 @@
 package sh.nemo.meilisearch.apis
 
+import io.ktor.client.call.body
 import io.ktor.client.request.get
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import sh.nemo.meilisearch.Meilisearch
 import sh.nemo.meilisearch.responses.TaskResponse
 
-suspend fun Meilisearch.listTasks() = this.client.get<List<TaskResponse>>("/tasks")
+suspend fun Meilisearch.listTasks(): List<TaskResponse> = this.client.get("/tasks").body()
 
-suspend fun Meilisearch.getTask(taskUid: String) = this.client.get<TaskResponse>("/tasks/$taskUid")
+suspend fun Meilisearch.getTask(taskUid: String): TaskResponse = this.client.get("/tasks/$taskUid").body()
 
-suspend fun Meilisearch.listTasksByIndex(indexUid: String) =
-    this.client.get<List<TaskResponse>>("/indexes/$indexUid/tasks")
+suspend fun Meilisearch.listTasksByIndex(indexUid: String): List<TaskResponse> =
+    this.client.get("/indexes/$indexUid/tasks").body()
 
-suspend fun Meilisearch.getTaskByIndex(indexUid: String, taskUid: String) =
-    this.client.get<TaskResponse>("/indexes/$indexUid/tasks/$taskUid")
+suspend fun Meilisearch.getTaskByIndex(indexUid: String, taskUid: String): TaskResponse =
+    this.client.get("/indexes/$indexUid/tasks/$taskUid").body()
 
 suspend fun Meilisearch.waitForTask(taskUid: String) = waitForTask(taskUid, 5000, 50)
 
