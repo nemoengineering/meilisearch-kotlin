@@ -18,16 +18,16 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("io.ktor:ktor-bom:2.0.0"))
+    api(platform("io.ktor:ktor-bom:2.0.0"))
 
-    implementation("io.ktor:ktor-client-core")
-    implementation("io.ktor:ktor-client-cio")
-    implementation("io.ktor:ktor-client-content-negotiation")
-    implementation("io.ktor:ktor-serialization-kotlinx-json")
-    implementation("io.ktor:ktor-client-logging")
+    api("io.ktor:ktor-client-core")
+    api("io.ktor:ktor-client-cio")
+    api("io.ktor:ktor-client-content-negotiation")
+    api("io.ktor:ktor-serialization-kotlinx-json")
+    api("io.ktor:ktor-client-logging")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    api("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
+    api("ch.qos.logback:logback-classic:1.2.11")
 
     testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")

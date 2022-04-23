@@ -5,12 +5,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
-import sh.nemo.meilisearch.apis.createIndex
-import sh.nemo.meilisearch.apis.deleteIndex
-import sh.nemo.meilisearch.apis.getIndex
-import sh.nemo.meilisearch.apis.listIndexes
-import sh.nemo.meilisearch.apis.updateIndexPrimaryKey
-import sh.nemo.meilisearch.apis.waitForTask
 import sh.nemo.meilisearch.exceptions.ResourceNotFound
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

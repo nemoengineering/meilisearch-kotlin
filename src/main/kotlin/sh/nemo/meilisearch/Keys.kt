@@ -1,4 +1,4 @@
-package sh.nemo.meilisearch.apis
+package sh.nemo.meilisearch
 
 import io.ktor.client.call.body
 import io.ktor.client.request.delete
@@ -7,7 +7,6 @@ import io.ktor.client.request.patch
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import kotlinx.datetime.Instant
-import sh.nemo.meilisearch.Meilisearch
 import sh.nemo.meilisearch.requests.KeyUpsertRequest
 import sh.nemo.meilisearch.responses.KeyResponse
 import sh.nemo.meilisearch.responses.KeysResponse

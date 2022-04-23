@@ -1,9 +1,8 @@
-package sh.nemo.meilisearch.apis
+package sh.nemo.meilisearch
 
 import io.ktor.client.call.body
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
-import sh.nemo.meilisearch.Meilisearch
 import sh.nemo.meilisearch.requests.SearchRequest
 import sh.nemo.meilisearch.responses.SearchResponse
 
