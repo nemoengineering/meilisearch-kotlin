@@ -13,7 +13,10 @@ data class SearchRequest(
     val attributesToRetrieve: List<String>,
     val attributesToCrop: List<String>?,
     val cropLength: Int,
+    val cropMarker: String,
     val attributesToHighlight: List<String>?,
+    val highlightPreTag: String,
+    val highlightPostTag: String,
     val matches: Boolean,
     val sort: String?
 )

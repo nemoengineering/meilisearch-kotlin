@@ -16,7 +16,10 @@ suspend inline fun <reified T> Meilisearch.search(
     attributesToRetrieve: List<String> = listOf("*"),
     attributesToCrop: List<String>? = null,
     cropLength: Int = 200,
+    cropMarker: String = "…",
     attributesToHighlight: List<String>? = null,
+    highlightPreTag: String = "<em>",
+    highlightPostTag: String = "</em>",
     matches: Boolean = false,
     sort: String? = null
 ): SearchResponse<T> =
@@ -31,7 +34,10 @@ suspend inline fun <reified T> Meilisearch.search(
                 attributesToRetrieve,
                 attributesToCrop,
                 cropLength,
+                cropMarker,
                 attributesToHighlight,
+                highlightPreTag,
+                highlightPostTag,
                 matches,
                 sort,
             )
