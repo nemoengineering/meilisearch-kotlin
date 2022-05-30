@@ -6,10 +6,12 @@ import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
+import sh.nemo.meilisearch.models.IndexSettings
 import sh.nemo.meilisearch.requests.IndexCreateRequest
 import sh.nemo.meilisearch.requests.IndexUpdateRequest
 import sh.nemo.meilisearch.responses.ChangeResponse
 import sh.nemo.meilisearch.responses.IndexResponse
+import sh.nemo.meilisearch.responses.TaskResponse
 
 suspend fun Meilisearch.listIndexes(): List<IndexResponse> = this.client.get("/indexes").body()
 
@@ -26,3 +28,10 @@ suspend fun Meilisearch.updateIndexPrimaryKey(uid: String, primaryKey: String? =
     }.body()
 
 suspend fun Meilisearch.deleteIndex(uid: String): ChangeResponse = this.client.delete("/indexes/$uid").body()
+
+suspend fun Meilisearch.getIndexSettings(uid: String): IndexSettings = this.client.get("/indexes/$uid/settings").body()
+
+suspend fun Meilisearch.updateIndexSettings(uid: String, settings: IndexSettings): TaskResponse =
+    this.client.post("/indexes/$uid/settings") {
+        setBody(settings)
+    }.body()

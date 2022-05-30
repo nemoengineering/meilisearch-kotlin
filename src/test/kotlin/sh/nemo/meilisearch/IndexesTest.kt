@@ -6,6 +6,8 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
 import sh.nemo.meilisearch.exceptions.ResourceNotFound
+import sh.nemo.meilisearch.models.IndexSettings
+import sh.nemo.meilisearch.models.TypoToleranceSettings
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
@@ -94,5 +96,40 @@ internal class IndexesTest : BaseTest() {
         }
 
         assertEquals("Index `index-1` not found.", exception.message)
+    }
+
+    @Test
+    fun `it can update index settings`() = runTest {
+        // given
+        val taskA = client.createIndex("index-1", "id")
+        client.waitForTask(taskA.uid)
+
+        // when
+        val settings = IndexSettings(
+            displayedAttributes = listOf("attr1"),
+            distinctAttribute = "attr1",
+            filterableAttributes = listOf("attr1"),
+            rankingRules = listOf("typo", "sort"),
+            searchableAttributes = listOf("attr1"),
+            stopWords = listOf("stop-word-1"),
+            synonyms = mapOf(
+                "syn1" to listOf("syn2", "syn3")
+            ),
+            typoTolerance = TypoToleranceSettings(
+                minWordSizeForTypos = mapOf(
+                    "oneTypo" to 2,
+                    "twoTypos" to 2
+                ),
+                disableOnAttributes = listOf("attr1"),
+                disableOnWords = listOf("word")
+            )
+        )
+        val taskB = client.updateIndexSettings("index-1", settings)
+        client.waitForTask(taskB.uid)
+
+        // then
+        val resSettings = client.getIndexSettings("index-1")
+
+        assertEquals(settings, resSettings)
     }
 }
