@@ -15,7 +15,7 @@ data class IndexSettings(
         "sort",
         "exactness"
     ),
-    val searchableAttributes: List<String> = listOf(),
+    val searchableAttributes: List<String> = listOf("*"),
     val stopWords: List<String> = listOf(),
     val synonyms: Map<String, List<String>> = mapOf(),
     val typoTolerance: TypoToleranceSettings = TypoToleranceSettings()
