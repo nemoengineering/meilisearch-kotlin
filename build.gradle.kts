@@ -30,7 +30,7 @@ dependencies {
     api("ch.qos.logback:logback-classic:1.2.11")
 
     testImplementation(kotlin("test"))
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
     testImplementation("org.testcontainers:testcontainers:1.17.2")
     testImplementation("org.testcontainers:junit-jupiter:1.17.2")
