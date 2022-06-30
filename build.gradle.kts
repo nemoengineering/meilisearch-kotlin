@@ -32,7 +32,7 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-    testImplementation("org.testcontainers:testcontainers:1.17.2")
+    testImplementation("org.testcontainers:testcontainers:1.17.3")
     testImplementation("org.testcontainers:junit-jupiter:1.17.2")
 }
 
