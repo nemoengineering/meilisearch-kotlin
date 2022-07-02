@@ -13,6 +13,6 @@ data class TaskResponse(
     val enqueuedAt: Instant? = null,
     val startedAt: Instant? = null,
     val finishedAt: Instant? = null,
-    val error: ErrorResponse? = null,
+    val error: ErrorResponse? = null
     // val details: String? = null,
 )

@@ -39,7 +39,7 @@ suspend inline fun <reified T> Meilisearch.search(
                 highlightPreTag,
                 highlightPostTag,
                 matches,
-                sort,
+                sort
             )
         )
     }.body()

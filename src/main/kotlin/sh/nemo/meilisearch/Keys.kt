@@ -17,7 +17,7 @@ suspend fun Meilisearch.createKey(
     description: String? = null,
     actions: List<String> = emptyList(),
     indexes: List<String> = emptyList(),
-    expiresAt: Instant? = null,
+    expiresAt: Instant? = null
 ): KeyResponse =
     this.client.post("/keys") {
         setBody(KeyUpsertRequest(description, actions, indexes, expiresAt))
@@ -31,7 +31,7 @@ suspend fun Meilisearch.updateKey(
     description: String? = null,
     actions: List<String> = emptyList(),
     indexes: List<String> = emptyList(),
-    expiresAt: Instant? = null,
+    expiresAt: Instant? = null
 ): KeyResponse =
     this.client.patch("/keys/$key") {
         setBody(KeyUpsertRequest(description, actions, indexes, expiresAt))
