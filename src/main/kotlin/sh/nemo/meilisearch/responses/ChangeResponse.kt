@@ -9,5 +9,5 @@ data class ChangeResponse(
     val indexUid: String,
     val status: String,
     val type: String,
-    val enqueuedAt: Instant,
+    val enqueuedAt: Instant
 )

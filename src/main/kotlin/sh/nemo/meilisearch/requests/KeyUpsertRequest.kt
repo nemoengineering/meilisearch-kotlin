@@ -8,5 +8,5 @@ data class KeyUpsertRequest(
     val description: String? = null,
     val actions: List<String> = emptyList(),
     val indexes: List<String> = emptyList(),
-    val expiresAt: Instant? = null,
+    val expiresAt: Instant? = null
 )
