@@ -13,7 +13,7 @@ open class BaseTest {
     protected lateinit var client: Meilisearch
 
     @Container
-    var meilisearch: GenericContainer<*> = GenericContainer(DockerImageName.parse("getmeili/meilisearch:latest"))
+    var meilisearch: GenericContainer<*> = GenericContainer(DockerImageName.parse("getmeili/meilisearch:v0.27.2"))
         .withExposedPorts(7700).withEnv("MEILI_MASTER_KEY", testMasterKey)
 
     @BeforeEach
