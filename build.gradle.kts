@@ -27,7 +27,7 @@ dependencies {
     api("io.ktor:ktor-client-logging")
 
     api("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-    api("ch.qos.logback:logback-classic:1.2.11")
+    api("ch.qos.logback:logback-classic:1.4.0")
 
     testImplementation(kotlin("test"))
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
