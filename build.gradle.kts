@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     base
     kotlin("jvm") version "1.7.21"
-    kotlin("plugin.serialization") version "1.7.21"
+    kotlin("plugin.serialization") version "1.7.22"
     `maven-publish`
 
     // Linter
