@@ -4,7 +4,7 @@
 [![CD/CI Workflow](https://github.com/nemoengineering/meilisearch-kotlin/actions/workflows/cdci-workflow.yml/badge.svg)](https://github.com/nemoengineering/meilisearch-kotlin/actions/workflows/cdci-workflow.yml)
 
 A Kotlin wrapper around [Meilisearch](https://github.com/meilisearch/meilisearch) REST API. This library uses Ktor
-Client and KotlinX Serialization under the hood in order to provide an async typed client for Meilisearch.
+Client and KotlinX Serialization under the hood in order to provide an async typed client for Meilisearch v1.
 
 ## Installation
 
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.nemoengineering:meilisearch-kotlin:0.2.1")
+    implementation("com.github.nemoengineering:meilisearch-kotlin:0.4.0")
 }
 ```
 
