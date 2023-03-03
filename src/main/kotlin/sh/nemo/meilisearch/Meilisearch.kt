@@ -1,6 +1,6 @@
 package sh.nemo.meilisearch
 
-import io.ktor.client.*
+import io.ktor.client.HttpClient
 import kotlinx.serialization.json.Json
 import sh.nemo.meilisearch.http.httpClient
 
