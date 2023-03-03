@@ -20,16 +20,16 @@ internal class IndexesTest : BaseTest() {
         val taskA = client.createIndex("index-1", "id")
         val taskB = client.createIndex("index-2", "name")
 
-        client.waitForTask(taskA.uid)
-        client.waitForTask(taskB.uid)
+        client.waitForTask(taskA.taskUid)
+        client.waitForTask(taskB.taskUid)
 
         // when
         val response = client.listIndexes()
 
         // then
-        assertEquals(2, response.size)
-        assertTrue(response.any { it.uid == "index-1" && it.primaryKey == "id" })
-        assertTrue(response.any { it.uid == "index-2" && it.primaryKey == "name" })
+        assertEquals(2, response.results.size)
+        assertTrue(response.results.any { it.uid == "index-1" && it.primaryKey == "id" })
+        assertTrue(response.results.any { it.uid == "index-2" && it.primaryKey == "name" })
     }
 
     @Test
@@ -51,7 +51,7 @@ internal class IndexesTest : BaseTest() {
     fun `it can get a specific index`() = runTest {
         // given
         val taskA = client.createIndex("index-1", "id")
-        client.waitForTask(taskA.uid)
+        client.waitForTask(taskA.taskUid)
 
         // when
         val response = client.getIndex("index-1")
@@ -65,13 +65,13 @@ internal class IndexesTest : BaseTest() {
     fun `it can update the primary key for a specific index`() = runTest {
         // given
         val taskA = client.createIndex("index-1", "id")
-        client.waitForTask(taskA.uid)
+        client.waitForTask(taskA.taskUid)
         val initialIndex = client.getIndex("index-1")
         assertEquals("id", initialIndex.primaryKey)
 
         // when
         val taskB = client.updateIndexPrimaryKey("index-1", "address")
-        client.waitForTask(taskB.uid)
+        client.waitForTask(taskB.taskUid)
 
         // then
         val updatedIndex = client.getIndex("index-1")
@@ -82,11 +82,11 @@ internal class IndexesTest : BaseTest() {
     fun `it can delete an index`() = runTest {
         // given
         val taskA = client.createIndex("index-1", "id")
-        client.waitForTask(taskA.uid)
+        client.waitForTask(taskA.taskUid)
 
         // when
         val taskB = client.deleteIndex("index-1")
-        client.waitForTask(taskB.uid)
+        client.waitForTask(taskB.taskUid)
 
         // then
         val exception: Exception = assertThrows(ResourceNotFound::class.java) {
@@ -102,7 +102,7 @@ internal class IndexesTest : BaseTest() {
     fun `it can update index settings`() = runTest {
         // given
         val taskA = client.createIndex("index-1", "id")
-        client.waitForTask(taskA.uid)
+        client.waitForTask(taskA.taskUid)
 
         // when
         val settings = IndexSettings(
@@ -125,7 +125,7 @@ internal class IndexesTest : BaseTest() {
             )
         )
         val taskB = client.updateIndexSettings("index-1", settings)
-        client.waitForTask(taskB.uid)
+        client.waitForTask(taskB.taskUid)
 
         // then
         val resSettings = client.getIndexSettings("index-1")

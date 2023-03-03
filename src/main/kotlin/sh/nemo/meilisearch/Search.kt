@@ -11,8 +11,10 @@ suspend inline fun <reified T> Meilisearch.search(
     query: String = "",
     offset: Int = 0,
     limit: Int = 20,
+    hitsPerPage: Int? = null,
+    page: Int? = null,
     filter: String? = null,
-    facetsDistribution: List<String>? = null,
+    facets: List<String>? = null,
     attributesToRetrieve: List<String> = listOf("*"),
     attributesToCrop: List<String>? = null,
     cropLength: Int = 200,
@@ -20,8 +22,9 @@ suspend inline fun <reified T> Meilisearch.search(
     attributesToHighlight: List<String>? = null,
     highlightPreTag: String = "<em>",
     highlightPostTag: String = "</em>",
-    matches: Boolean = false,
-    sort: String? = null
+    showMatchesPosition: Boolean = false,
+    sort: String? = null,
+    matchingStrategy: String = "last"
 ): SearchResponse<T> =
     this.client.post("/indexes/$indexUid/search") {
         setBody(
@@ -29,8 +32,10 @@ suspend inline fun <reified T> Meilisearch.search(
                 query,
                 offset,
                 limit,
+                hitsPerPage,
+                page,
                 filter,
-                facetsDistribution,
+                facets,
                 attributesToRetrieve,
                 attributesToCrop,
                 cropLength,
@@ -38,8 +43,9 @@ suspend inline fun <reified T> Meilisearch.search(
                 attributesToHighlight,
                 highlightPreTag,
                 highlightPostTag,
-                matches,
-                sort
+                showMatchesPosition,
+                sort,
+                matchingStrategy
             )
         )
     }.body()

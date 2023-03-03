@@ -19,30 +19,30 @@ internal class KeysTest : BaseTest() {
     @Test
     fun `it can list all keys`() = runTest {
         // given
-        val keyA = client.createKey("Prod key", listOf("documents.add"), listOf("products"))
-        val keyB = client.createKey("Dev key", listOf("documents.delete"), listOf("products"))
+        val keyA = client.createKey("Prod key", actions = listOf("documents.add"), indexes = listOf("products"))
+        val keyB = client.createKey("Dev key", actions = listOf("documents.delete"), indexes = listOf("products"))
 
         // when
         val response = client.listKeys()
 
         // then
-        assertEquals(4, response.size) // 2 default keys + 2 inserted above
-        assertTrue(response.containsAll(listOf(keyA, keyB)))
+        assertEquals(4, response.results.size) // 2 default keys + 2 inserted above
+        assertTrue(response.results.containsAll(listOf(keyA, keyB)))
     }
 
     @Test
     fun `it can create a key`() = runTest {
         // given
-        val description = "Prod key"
+        val name = "Prod key"
         val actions = listOf("documents.add", "documents.delete")
         val indexes = listOf("products")
         val expiresAt = Clock.System.now().plus(1, DateTimeUnit.HOUR, TimeZone.currentSystemDefault())
 
         // when
-        val response = client.createKey(description, actions, indexes, expiresAt)
+        val response = client.createKey(name = name, actions = actions, indexes = indexes, expiresAt = expiresAt)
 
         // then
-        assertEquals(description, response.description)
+        assertEquals(name, response.name)
         assertEquals(actions, response.actions)
         assertEquals(indexes, response.indexes)
     }
@@ -50,7 +50,7 @@ internal class KeysTest : BaseTest() {
     @Test
     fun `it can get a specific key`() = runTest {
         // given
-        val keyA = client.createKey("Prod key", listOf("documents.add"), listOf("products"))
+        val keyA = client.createKey("Prod key", actions = listOf("documents.add"), indexes = listOf("products"))
 
         // when
         val response = client.getKey(keyA.key)
@@ -63,21 +63,21 @@ internal class KeysTest : BaseTest() {
     @Test
     fun `it can update a specific key`() = runTest {
         // given
-        val key = client.createKey("Prod key", listOf("documents.add"), listOf("products"))
+        val key = client.createKey("Prod key", actions = listOf("documents.add"), indexes = listOf("products"))
         val initialKey = client.getKey(key.key)
         assertEquals(key, initialKey)
 
         // when
-        val updatedKey = client.updateKey(key.key, actions = listOf("documents.delete"))
+        val updatedKey = client.updateKey(key.key, name = "Dev key")
 
         // then
-        assertEquals(listOf("documents.delete"), updatedKey.actions)
+        assertEquals("Dev key", updatedKey.name)
     }
 
     @Test
     fun `it can delete a key`() = runTest {
         // given
-        val key = client.createKey("Prod key", listOf("documents.add"), listOf("products"))
+        val key = client.createKey("Prod key", actions = listOf("documents.add"), indexes = listOf("products"))
         val initialKey = client.getKey(key.key)
         assertEquals(key, initialKey)
 

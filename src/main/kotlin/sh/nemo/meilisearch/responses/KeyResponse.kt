@@ -6,6 +6,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class KeyResponse(
     val key: String,
+    val uid: String,
+    val name: String? = null,
     val description: String? = null,
     val actions: List<String> = emptyList(),
     val indexes: List<String> = emptyList(),

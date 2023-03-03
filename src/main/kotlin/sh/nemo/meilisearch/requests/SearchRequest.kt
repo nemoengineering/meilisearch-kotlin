@@ -8,8 +8,10 @@ data class SearchRequest(
     @SerialName("q") val query: String,
     val offset: Int,
     val limit: Int,
+    val hitsPerPage: Int?,
+    val page: Int?,
     val filter: String?,
-    val facetsDistribution: List<String>?,
+    val facets: List<String>?,
     val attributesToRetrieve: List<String>,
     val attributesToCrop: List<String>?,
     val cropLength: Int,
@@ -17,6 +19,7 @@ data class SearchRequest(
     val attributesToHighlight: List<String>?,
     val highlightPreTag: String,
     val highlightPostTag: String,
-    val matches: Boolean,
-    val sort: String?
+    val showMatchesPosition: Boolean,
+    val sort: String?,
+    val matchingStrategy: String
 )

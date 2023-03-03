@@ -8,16 +8,17 @@ import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import sh.nemo.meilisearch.responses.ChangeResponse
+import sh.nemo.meilisearch.responses.PaginatedResponse
 
 suspend inline fun <reified T> Meilisearch.getDocuments(
     indexUid: String,
     offset: Int = 0,
     limit: Int = 20,
-    attributesToRetrieve: String = "*"
-): List<T> = this.client.get("/indexes/$indexUid/documents") {
+    fields: String = "*"
+): PaginatedResponse<T> = this.client.get("/indexes/$indexUid/documents") {
     parameter("offset", offset)
     parameter("limit", limit)
-    parameter("attributesToRetrieve", attributesToRetrieve)
+    parameter("fields", fields)
 }.body()
 
 suspend inline fun <reified T> Meilisearch.addDocuments(
