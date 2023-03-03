@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ChangeResponse(
-    val uid: String,
+    val taskUid: String,
     val indexUid: String,
     val status: String,
     val type: String,
