@@ -1,8 +1,7 @@
 package sh.nemo.meilisearch
 
-import io.ktor.client.call.body
-import io.ktor.client.request.post
-import io.ktor.client.request.setBody
+import io.ktor.client.call.*
+import io.ktor.client.request.*
 import sh.nemo.meilisearch.requests.SearchRequest
 import sh.nemo.meilisearch.responses.SearchResponse
 
@@ -11,8 +10,10 @@ suspend inline fun <reified T> Meilisearch.search(
     query: String = "",
     offset: Int = 0,
     limit: Int = 20,
+    hitsPerPage: Int? = null,
+    page: Int? = null,
     filter: String? = null,
-    facetsDistribution: List<String>? = null,
+    facets: List<String>? = null,
     attributesToRetrieve: List<String> = listOf("*"),
     attributesToCrop: List<String>? = null,
     cropLength: Int = 200,
@@ -20,8 +21,9 @@ suspend inline fun <reified T> Meilisearch.search(
     attributesToHighlight: List<String>? = null,
     highlightPreTag: String = "<em>",
     highlightPostTag: String = "</em>",
-    matches: Boolean = false,
-    sort: String? = null
+    showMatchesPosition: Boolean = false,
+    sort: String? = null,
+    matchingStrategy: String = "last"
 ): SearchResponse<T> =
     this.client.post("/indexes/$indexUid/search") {
         setBody(
@@ -29,8 +31,10 @@ suspend inline fun <reified T> Meilisearch.search(
                 query,
                 offset,
                 limit,
+                hitsPerPage,
+                page,
                 filter,
-                facetsDistribution,
+                facets,
                 attributesToRetrieve,
                 attributesToCrop,
                 cropLength,
@@ -38,8 +42,9 @@ suspend inline fun <reified T> Meilisearch.search(
                 attributesToHighlight,
                 highlightPreTag,
                 highlightPostTag,
-                matches,
-                sort
+                showMatchesPosition,
+                sort,
+                matchingStrategy
             )
         )
     }.body()

@@ -1,7 +1,7 @@
 package sh.nemo.meilisearch
 
-import io.ktor.client.call.body
-import io.ktor.client.request.get
+import io.ktor.client.call.*
+import io.ktor.client.request.*
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import sh.nemo.meilisearch.responses.TaskResponse

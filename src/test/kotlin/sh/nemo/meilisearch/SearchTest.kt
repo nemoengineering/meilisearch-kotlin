@@ -13,21 +13,21 @@ internal class SearchTest : BaseTest() {
     fun `it can search a document`() = runTest {
         // given
         val taskA = client.createIndex("index-1", "id")
-        client.waitForTask(taskA.uid)
+        client.waitForTask(taskA.taskUid)
 
         val docs = listOf(
             ExampleDoc("0", "bob", 42),
             ExampleDoc("1", "alice", 35)
         )
         val taskB = client.addDocuments("index-1", docs)
-        client.waitForTask(taskB.uid)
+        client.waitForTask(taskB.taskUid)
 
         // when
         val response = client.search<ExampleDoc>("index-1", query = "ali")
 
         // then
         assertEquals(docs.last(), response.hits.first())
-        assertEquals(1, response.nbHits)
+        assertEquals(1, response.estimatedTotalHits)
     }
 
     @Serializable
