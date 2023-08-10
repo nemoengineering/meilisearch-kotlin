@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    api(platform("io.ktor:ktor-bom:2.3.2"))
+    api(platform("io.ktor:ktor-bom:2.3.3"))
 
     api("io.ktor:ktor-client-core")
     api("io.ktor:ktor-client-cio")
