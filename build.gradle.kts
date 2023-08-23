@@ -33,7 +33,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     testImplementation("org.testcontainers:testcontainers:1.18.3")
-    testImplementation("org.testcontainers:junit-jupiter:1.18.3")
+    testImplementation("org.testcontainers:junit-jupiter:1.19.0")
 }
 
 tasks.test {
