@@ -7,7 +7,7 @@ plugins {
     `maven-publish`
 
     // Linter
-    id("org.jmailen.kotlinter") version "3.13.0"
+    id("org.jmailen.kotlinter") version "4.2.0"
 }
 
 group = "sh.nemo"
