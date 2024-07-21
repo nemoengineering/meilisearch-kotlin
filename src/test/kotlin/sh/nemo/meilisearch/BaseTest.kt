@@ -13,7 +13,7 @@ open class BaseTest {
 
     @Container
     var meilisearch: GenericContainer<*> =
-        GenericContainer(DockerImageName.parse("getmeili/meilisearch:v1.0"))
+        GenericContainer(DockerImageName.parse("getmeili/meilisearch:v1.9"))
             .withExposedPorts(7700)
             .withEnv("MEILI_MASTER_KEY", testMasterKey)
 

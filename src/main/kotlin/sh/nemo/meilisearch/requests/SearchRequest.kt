@@ -22,4 +22,8 @@ data class SearchRequest(
     val showMatchesPosition: Boolean,
     val sort: String?,
     val matchingStrategy: String,
+    val showRankingScore: Boolean,
+    val showRankingScoreDetails: Boolean,
+    val rankingScoreThreshold: Double?,
+    val attributesToSearchOn: List<String>?,
 )

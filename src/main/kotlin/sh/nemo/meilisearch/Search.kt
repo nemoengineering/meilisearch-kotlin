@@ -25,6 +25,10 @@ suspend inline fun <reified T> Meilisearch.search(
     showMatchesPosition: Boolean = false,
     sort: String? = null,
     matchingStrategy: String = "last",
+    showRankingScore: Boolean = false,
+    showRankingScoreDetails: Boolean = false,
+    rankingScoreThreshold: Double? = null,
+    attributesToSearchOn: List<String>? = listOf("*")
 ): SearchResponse<T> =
     this.client
         .post("/indexes/$indexUid/search") {
@@ -47,6 +51,10 @@ suspend inline fun <reified T> Meilisearch.search(
                     showMatchesPosition,
                     sort,
                     matchingStrategy,
+                    showRankingScore,
+                    showRankingScoreDetails,
+                    rankingScoreThreshold,
+                    attributesToSearchOn
                 ),
             )
         }.body()
