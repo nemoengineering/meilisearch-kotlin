@@ -24,28 +24,29 @@ suspend inline fun <reified T> Meilisearch.search(
     highlightPostTag: String = "</em>",
     showMatchesPosition: Boolean = false,
     sort: String? = null,
-    matchingStrategy: String = "last"
+    matchingStrategy: String = "last",
 ): SearchResponse<T> =
-    this.client.post("/indexes/$indexUid/search") {
-        setBody(
-            SearchRequest(
-                query,
-                offset,
-                limit,
-                hitsPerPage,
-                page,
-                filter,
-                facets,
-                attributesToRetrieve,
-                attributesToCrop,
-                cropLength,
-                cropMarker,
-                attributesToHighlight,
-                highlightPreTag,
-                highlightPostTag,
-                showMatchesPosition,
-                sort,
-                matchingStrategy
+    this.client
+        .post("/indexes/$indexUid/search") {
+            setBody(
+                SearchRequest(
+                    query,
+                    offset,
+                    limit,
+                    hitsPerPage,
+                    page,
+                    filter,
+                    facets,
+                    attributesToRetrieve,
+                    attributesToCrop,
+                    cropLength,
+                    cropMarker,
+                    attributesToHighlight,
+                    highlightPreTag,
+                    highlightPostTag,
+                    showMatchesPosition,
+                    sort,
+                    matchingStrategy,
+                ),
             )
-        )
-    }.body()
+        }.body()

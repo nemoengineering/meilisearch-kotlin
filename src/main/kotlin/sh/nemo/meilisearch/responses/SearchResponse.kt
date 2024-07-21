@@ -13,5 +13,5 @@ data class SearchResponse<T>(
     val page: Int? = null,
     // val facetsDistribution: Map<String, Map<String, Int>>, FIXME
     val processingTimeMs: Long,
-    val query: String
+    val query: String,
 )

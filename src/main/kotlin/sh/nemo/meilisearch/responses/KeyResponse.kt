@@ -13,8 +13,10 @@ data class KeyResponse(
     val indexes: List<String> = emptyList(),
     val expiresAt: Instant? = null,
     val createdAt: Instant,
-    val updatedAt: Instant
+    val updatedAt: Instant,
 )
 
 @Serializable
-data class KeysResponse(val results: List<KeyResponse>)
+data class KeysResponse(
+    val results: List<KeyResponse>,
+)

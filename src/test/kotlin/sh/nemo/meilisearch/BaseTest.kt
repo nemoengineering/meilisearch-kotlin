@@ -8,20 +8,22 @@ import org.testcontainers.utility.DockerImageName
 
 @Testcontainers
 open class BaseTest {
-
     private val testMasterKey = "testMasterKey"
     protected lateinit var client: Meilisearch
 
     @Container
-    var meilisearch: GenericContainer<*> = GenericContainer(DockerImageName.parse("getmeili/meilisearch:v1.0"))
-        .withExposedPorts(7700).withEnv("MEILI_MASTER_KEY", testMasterKey)
+    var meilisearch: GenericContainer<*> =
+        GenericContainer(DockerImageName.parse("getmeili/meilisearch:v1.0"))
+            .withExposedPorts(7700)
+            .withEnv("MEILI_MASTER_KEY", testMasterKey)
 
     @BeforeEach
     open fun setUp() {
-        client = Meilisearch {
-            port = meilisearch.firstMappedPort
-            host = meilisearch.host
-            apiKey = testMasterKey
-        }
+        client =
+            Meilisearch {
+                port = meilisearch.firstMappedPort
+                host = meilisearch.host
+                apiKey = testMasterKey
+            }
     }
 }

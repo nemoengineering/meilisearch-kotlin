@@ -8,5 +8,5 @@ data class IndexResponse(
     val uid: String,
     val primaryKey: String?,
     val createdAt: Instant,
-    val updatedAt: Instant
+    val updatedAt: Instant,
 )

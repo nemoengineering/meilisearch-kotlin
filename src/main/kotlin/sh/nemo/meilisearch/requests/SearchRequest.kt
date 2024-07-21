@@ -21,5 +21,5 @@ data class SearchRequest(
     val highlightPostTag: String,
     val showMatchesPosition: Boolean,
     val sort: String?,
-    val matchingStrategy: String
+    val matchingStrategy: String,
 )

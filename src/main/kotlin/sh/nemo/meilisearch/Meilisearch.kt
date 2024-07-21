@@ -4,7 +4,9 @@ import io.ktor.client.HttpClient
 import kotlinx.serialization.json.Json
 import sh.nemo.meilisearch.http.httpClient
 
-class Meilisearch(block: MeilisearchClientConfig.() -> Unit) {
+class Meilisearch(
+    block: MeilisearchClientConfig.() -> Unit,
+) {
     private val config: MeilisearchClientConfig = MeilisearchClientConfig().apply(block)
     var client: HttpClient = httpClient(config)
 
