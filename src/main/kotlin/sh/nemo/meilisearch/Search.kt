@@ -28,7 +28,7 @@ suspend inline fun <reified T> Meilisearch.search(
     showRankingScore: Boolean = false,
     showRankingScoreDetails: Boolean = false,
     rankingScoreThreshold: Double? = null,
-    attributesToSearchOn: List<String>? = listOf("*")
+    attributesToSearchOn: List<String>? = listOf("*"),
 ): SearchResponse<T> =
     this.client
         .post("/indexes/$indexUid/search") {
@@ -54,7 +54,7 @@ suspend inline fun <reified T> Meilisearch.search(
                     showRankingScore,
                     showRankingScoreDetails,
                     rankingScoreThreshold,
-                    attributesToSearchOn
+                    attributesToSearchOn,
                 ),
             )
         }.body()
