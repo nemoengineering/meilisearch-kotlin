@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.nemoengineering:meilisearch-kotlin:0.4.0")
+    implementation("com.github.nemoengineering:meilisearch-kotlin:0.5.0")
 }
 ```
 
